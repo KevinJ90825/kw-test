@@ -64,6 +64,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+CANARY_KEY = 'test_5AKB95SA81PUSGAO8PNN'
+CANARY_SECRET = 'E9Xx6bxrRwJerXywYL6aQmuyZDgHK0k9'
+
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
