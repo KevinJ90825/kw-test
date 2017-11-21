@@ -24,4 +24,9 @@ def index(request):
             housecanary=response
         )
 
+        return render(request, 'main/thanks.html', {
+            'GOOGLE_API': settings.GOOGLE_API_KEY,
+            'ADDRESS': request.POST['property_address']
+        })
+
     return render(request, 'main/index.html', {})

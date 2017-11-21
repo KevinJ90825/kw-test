@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thanks | Keller Williams KJH Test</title>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+</head>
+<body style="background: #f7f7fb;">
+    <div class="container" style="max-width: 600px; border-radius: 5px; margin-top: 50px; padding: 50px 50px; color: #666 !important; background: #fff; box-shadow: 2px 2px 5px rgba(0,0,0,.05);">
+    <h1 style="padding-botton:20px;">Thank You!</h1>
+        <div class="row">
+            <div id="map" style="height: 500px; width: 500px;"></div>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 10,
+              center: {lat: -34.397, lng: 150.644}
+            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+          }
+
+          function geocodeAddress(geocoder, resultsMap) {
+            geocoder.geocode({'address': "{{ADDRESS}}"}, function(results, status) {
+              if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                });
+              } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+          }
+
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API}}&callback=initMap">
+    </script>
+
+</body>
+</html>

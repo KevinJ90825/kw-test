@@ -57,6 +57,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'kwtest.urls'
 
+GOOGLE_API_KEY = 'AIzaSyA90uHAZ0H' + '3xm6S6vd5SXVRCZ9yFY8tJBU'
+
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
