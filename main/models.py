@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 class HomeBuyer(models.Model):
@@ -11,3 +12,5 @@ class HomeBuyer(models.Model):
 
     current_address = models.TextField()
     property_address = models.TextField()
+
+    housecanary = JSONField(null=True)
