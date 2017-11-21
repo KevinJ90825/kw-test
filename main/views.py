@@ -11,7 +11,7 @@ def index(request):
     if request.method == "POST":
         client = housecanary.ApiClient(settings.CANARY_KEY, settings.CANARY_SECRET)
         try:
-            response = client.property.value((request.POST['property_address'])).json()
+            response = client.property.value((request.POST['property_address'],)).json()
         except (RequestException, Exception):
             response = {}
 
