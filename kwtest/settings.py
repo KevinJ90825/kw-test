@@ -28,7 +28,8 @@ SECRET_KEY = 'r539h=hb)s1p&1zpu6pulczx2bexf&u#p05rn3fpzt1$y_*t3n'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'kw-test-kjh.herokuapp.com'
+    'kw-test-kjh.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -83,8 +84,7 @@ WSGI_APPLICATION = 'kwtest.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config("postgres://fcjlkdvxcotvfu:7ec0dc2783a3542c088fede60e799fe29f5463ef967570de09d7"
-                                      "6b590d35b655@ec2-54-83-19-82.compute-1.amazonaws.com:5432/d7rh0lq80f61m9")
+    'default': dj_database_url.config(default="postgres://fcjlkdvxcotvfu:7ec0dc2783a3542c088fede60e799fe29f5463ef967570de09d76b590d35b655@ec2-54-83-19-82.compute-1.amazonaws.com:5432/d7rh0lq80f61m9")
 }
 
 
