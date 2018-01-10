@@ -62,12 +62,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'kwtest.urls'
 
-GOOGLE_API_KEY = 'AIzaSyA90uHAZ0H' + '3xm6S6vd5SXVRCZ9yFY8tJBU'
-
-LEADCLOUD_ENDPOINT = "https://test.leadcloud.us/home/14428171-09a7-419a-9ff7-78ae81e7fd37"
-
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "AKIAJUHPGNJ4NQSHOANQ")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "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")
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
 
 STATIC_URL = '/static/'
 
