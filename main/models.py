@@ -1,16 +1,11 @@
-from django.contrib.postgres.fields import JSONField
 from django.db import models
+import os
 
-class HomeBuyer(models.Model):
+def get_upload_path(instance, filename):
+    return os.path.join(str(instance.agent_email.split('@')[0]), filename)
 
-    first_name = models.TextField()
-    last_name = models.TextField()
+class InspectionUpload(models.Model):
 
-    email = models.EmailField()
+    agent_email = models.EmailField()
+    inspection_file = models.FileField(upload_to=get_upload_path)
 
-    agent_email = models.EmailField(null=True)
-
-    current_address = models.TextField()
-    property_address = models.TextField()
-
-    housecanary = JSONField(null=True)

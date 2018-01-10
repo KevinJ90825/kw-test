@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig'
 ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_DEFAULT_ACL = 'private'
+AWS_STORAGE_BUCKET_NAME = 'keller-uploads'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +64,11 @@ ROOT_URLCONF = 'kwtest.urls'
 
 GOOGLE_API_KEY = 'AIzaSyA90uHAZ0H' + '3xm6S6vd5SXVRCZ9yFY8tJBU'
 
+LEADCLOUD_ENDPOINT = "https://test.leadcloud.us/home/14428171-09a7-419a-9ff7-78ae81e7fd37"
+
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "AKIAJUHPGNJ4NQSHOANQ")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "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")
+
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -66,8 +76,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-CANARY_KEY = 'test_5AKB95SA81PUSGAO8PNN'
-CANARY_SECRET = 'E9Xx6bxrRwJerXywYL6aQmuyZDgHK0k9'
+CANARY_KEY = '1IDZ8YXOD4XAZQKIIGH3'
+CANARY_SECRET = 'Bhuvt3vl5fmARuc8PE9dBcQN2T7MI2k8'
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 

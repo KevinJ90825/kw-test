@@ -1,12 +1,11 @@
 from django.contrib import admin
 
-from main.models import HomeBuyer
+from main.models import InspectionUpload
 
 
-class HomeBuyerAdmin(admin.ModelAdmin):
-    model = HomeBuyer
-    exclude = ()
-    list_display = ('id', 'first_name', 'last_name', 'email')
+class InspectionUploadAdmin(admin.ModelAdmin):
+    model = InspectionUpload
+    list_display = ('id', 'agent_email', 'inspection_file')
 
-admin.site.register(HomeBuyer, HomeBuyerAdmin)
+admin.site.register(InspectionUpload, InspectionUploadAdmin)
 

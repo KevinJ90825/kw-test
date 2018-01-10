@@ -1,32 +1,21 @@
-import housecanary
 from django.shortcuts import render
-from django.conf import settings
-from housecanary.exceptions import RequestException
 
-from main.models import HomeBuyer
+from main.forms import InspectionUploadForm
+from main.models import InspectionUpload
 
 
 def index(request):
 
     if request.method == "POST":
-        client = housecanary.ApiClient(settings.CANARY_KEY, settings.CANARY_SECRET)
-        try:
-            response = client.property.value((request.POST['property_address'],)).json()
-        except (RequestException, Exception):
-            response = {}
+        form = InspectionUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            for uploaded_file in request.FILES.getlist('inspection_file'):
+                InspectionUpload.objects.create(
+                    agent_email=form.cleaned_data['agent_email'],
+                    inspection_file=uploaded_file
+                )
+            return render(request, 'main/thanks.html')
 
-        HomeBuyer.objects.create(
-            first_name=request.POST['first_name'],
-            last_name=request.POST['last_name'],
-            email=request.POST['email'],
-            current_address=request.POST['current_address'],
-            property_address=request.POST['property_address'],
-            housecanary=response
-        )
-
-        return render(request, 'main/thanks.html', {
-            'GOOGLE_API': settings.GOOGLE_API_KEY,
-            'ADDRESS': request.POST['property_address']
-        })
-
-    return render(request, 'main/index.html', {})
+    else:
+        form = InspectionUploadForm()
+    return render(request, 'main/index.html', {'form': form})
