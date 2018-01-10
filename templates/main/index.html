@@ -21,6 +21,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <small class="help">You can upload one or multiple PDF files.</small>
                     {{form.inspection_file}}
                 </div>
             </div>
@@ -42,7 +43,16 @@
 
 <script src="{% static 'main/js/dropify.min.js' %}"></script>
 <script>
-    $('.dropify').dropify({allowedFileExtensions: 'pdf'});
+    $('.dropify').dropify({
+        allowedFileExtensions: 'pdf',
+        maxFileSize: 5M,
+        messages: {
+            'default': 'Drag and drop files here or click',
+            'replace': 'Drag and drop or click to replace',
+            'remove':  'Remove',
+            'error':   'Ooops, something went wrong.'
+        }
+    });
 </script>
 </body>
 </html>
