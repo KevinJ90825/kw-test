@@ -2,7 +2,7 @@ from django.db import models
 import os
 
 def get_upload_path(instance, filename):
-    return os.path.join(str(instance.agent_email.split('@')[0]), filename)
+    return os.path.join(instance.agent_email.lower(), filename)
 
 class InspectionUpload(models.Model):
 
