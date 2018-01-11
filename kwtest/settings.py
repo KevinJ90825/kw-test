@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'kw-test-kjh.herokuapp.com',
+    'kwinspection.com',
+    'www.kwinspection.com',
     '127.0.0.1'
 ]
 
